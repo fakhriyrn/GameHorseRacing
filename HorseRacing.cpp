@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+#include <string>
 
 using namespace std;
 
@@ -50,7 +51,7 @@ class Race{
 
 Race::Race(){
     length = 25;
-} //end Race
+} 
 
 Race::Race(int length){
     Race::length = length;
@@ -71,6 +72,7 @@ void Race::printLane(int horseNum){
 } 
 
 void Race::start(){
+	string playernames[5]={"player1","player2","player3","player4","player5"};
     bool keepGoing = true;
 
 
@@ -80,6 +82,7 @@ void Race::start(){
 
     cout << "\nReady, set, go!\n" << endl;
     cin.ignore();
+    system("cls");
 
     while(keepGoing){
         for(int n = 0;  n < 5; n++){
@@ -87,14 +90,17 @@ void Race::start(){
             printLane(n);
             if(h[n].getPosition() == (length)){ //win condition
                 keepGoing = false;
-                cout << "Horse " << n+1 << " wins!" << endl; // the +1 is because of numbering purposes
+                cout << "Horse " << n+1 << " wins!" << endl;
+				cout << playernames[n] << " " << "wins!" << endl; 
             } 
         } 
 
         cout << "\nPress enter to continue: " << endl; 
-        cin.ignore(); 
+        cin.ignore();
+        system("cls");
+        cout<<"kontol";
 
-        cout << "\n" << endl;
+        
 
     } 
 } 
